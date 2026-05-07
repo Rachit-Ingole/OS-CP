@@ -175,6 +175,7 @@ void printEndOfJob() {
     }
 
     outfile << "IC  = " << IC  << "\n";
+    outfile << "IR  = " << IR[0] << IR[1] << IR[2] << IR[3] << "\n";
     outfile << "TTC = " << TTC << " / " << pcb.TTL << "\n";
     outfile << "LLC = " << LLC << " / " << pcb.TLL << "\n";
     outfile << "\n\n";
@@ -361,6 +362,10 @@ void EXECUTE_USER_PROGRAM() {
 
         if (!validOp) {
             PI = 1;
+        }
+        else if (IR[0] != 'H' &&
+                 (IR[2] < '0' || IR[2] > '9' || IR[3] < '0' || IR[3] > '9')) {
+            PI = 2;
         }
 
         if (TI != 0 || PI != 0) {

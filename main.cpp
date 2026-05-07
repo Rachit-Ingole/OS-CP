@@ -164,13 +164,12 @@ void LOAD(string in_file, string out_file) {
             continue;
         }
         else {
-            int b = 0;
             for(int i = 0; i < 40; i++) buffer[i] = ' ';
             for(size_t i = 0; i < line.length() && i < 40; i++) {
-                 buffer[i] = line[i];
+                buffer[i] = line[i];
             }
-
-            b = 0;
+            
+            int b = 0;
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 4; j++) {
                     M[m + i][j] = buffer[b++];
