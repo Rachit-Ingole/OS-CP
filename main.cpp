@@ -108,6 +108,15 @@ void EXECUTE_USER_PROGRAM() {
             int operand = (IR[2] - '0') * 10 + (IR[3] - '0');
             for(int i = 0; i < 4; i++) M[operand][i] = R[i];
         }
+        else if (IR[0] == 'A' && IR[1] == 'D') {
+            int operand = (IR[2] - '0') * 10 + (IR[3] - '0');
+            int carry = 0;
+            for(int i = 3; i >= 0; i--) {
+                int sum = (R[i] - '0') + (M[operand][i] - '0') + carry;
+                R[i] = '0' + (sum % 10);
+                carry = sum / 10;
+            }
+        }
         else if (IR[0] == 'C' && IR[1] == 'R') {
             int operand = (IR[2] - '0') * 10 + (IR[3] - '0');
             bool equal = true;

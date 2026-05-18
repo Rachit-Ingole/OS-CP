@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// 300 frames of 4 bytes each (30 physical pages x 10 words)
+// 300 words of 4 bytes each (30 physical pages x 10 words)
 char M[300][4];
 
 char IR[4];   // Instruction Register
